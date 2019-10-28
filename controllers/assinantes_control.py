@@ -4,7 +4,7 @@ from dao.assinante_dao import AssinanteDao
 
 class AssinanteController(Resource):
     def __init__(self):
-        self.dao = AssinanteDao
+        self.dao = AssinanteDao()
         self.req = reqparse.RequestParser()
         self.req.add_argument("nome")
         self.req.add_argument("cpf")
@@ -12,7 +12,7 @@ class AssinanteController(Resource):
     def get(self, id=None):
         if id is not None:
             return self.dao.assinante_by_id(id)
-        return self.dao.list_all(self)
+        return self.dao.list_all()
 
     def post(self):
         args = self.req.parse_args()
@@ -29,6 +29,6 @@ class AssinanteController(Resource):
         return self.dao.update(assinante)
 
     def delete(self, id):
-        self.dao.delete()
+        self.dao.delete(id)
         return "pota que pariuuu", 204
 
