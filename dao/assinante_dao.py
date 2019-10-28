@@ -45,7 +45,7 @@ class AssinanteDao:
                                     ,passwd="grupo08"
                                     ,database="zuplae13"
                                 )
-        cursor = connection.curso()
+        cursor = connection.cursor()
         cursor.execute(f"INSERT INTO assinante (nome, cpf) VALUES('{assinante.nome}','{assinante.cpf}')")
         assinante.id = cursor.lastrowid
         connection.commit()
