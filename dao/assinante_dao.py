@@ -45,7 +45,7 @@ class AssinanteDao:
                                     ,passwd="grupo08"
                                     ,database="zuplae13"
                                 )
-        cursor = connection.cursor()
+        cursor = connection.cursor()#Ajuste na chamada do metodo 'cursor()' pois estava chamando 'curso()', fiz isso na linha 48 do assinante_dao.py
         cursor.execute(f"INSERT INTO assinante (nome, cpf) VALUES('{assinante.nome}','{assinante.cpf}')")
         assinante.id = cursor.lastrowid
         connection.commit()
